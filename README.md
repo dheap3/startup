@@ -37,9 +37,13 @@ A diagram of the main menu and the levels state.
 
 ```mermaid
 sequenceDiagram
-    actor You
-    actor Website
-    You->>Website: Replace this with your design
+    participant Main Menu
+    participant Levels
+    Main Menu->>Levels: Click 'Play'
+    Levels->>Levels: Level 1
+    Levels->>Levels: Level 2
+    Levels->>Main Menu: Click 'Main Menu'
+    Levels->>Main Menu: Fail, click 'Retry'
 ```
 
 ### Key features
