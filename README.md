@@ -51,9 +51,9 @@ I am going to use the required technologies in the following ways.
 - **HTML** - html will give me the basic blocks, the buttons, the screens, and the score
 - **CSS** - css will help me change the color of each side of the screen and the word each time
 - **React** - display and update the score - maybe lives too
-- **Service** - retrieving the high score
+- **Service** - retrieving the high score, display a new xkcd comic each new high score (xkcd API)
 - **DB/Login** - stores the high score and the set of prompts for each level
-- **WebSocket** - updating the high score
+- **WebSocket** - updating the overall high score (below player high score)
 
 ## 🚀 AWS deliverable
 
