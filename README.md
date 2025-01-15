@@ -1,8 +1,8 @@
-# Your startup name here
+# Mind Swipe Web
 
 [My Notes](notes.md)
 
-A brief description of the application here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+This is an attempt to recreate the game called **"Mind Swipe"** and can have several levels of complexity. These will include following simple directions, matching colors, decoding a phrase of words, and doing all of this quickly to meet the time limit.
 
 
 > [!NOTE]
@@ -18,21 +18,22 @@ A brief description of the application here. Lorem ipsum dolor sit amet, consect
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
+- [x] Proper use of Markdown
+- [x] A concise and compelling elevator pitch
 - [ ] Description of key features
 - [ ] Description of how you will use each technology
 - [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Have you felt like there's no new ideas? Like every game you find is another remake? Mind Swipe Web is here to help you with that! As a simple and fun game, Mind Swipe Web consists of matching simple code phrases with corners of your screen and passing each level.
 
 ### Design
 
-![Design image](placeholder.png)
+![Main Menu](https://github.com/user-attachments/assets/4338b19c-a95e-43f7-a9cc-9ea0e07e6d09)
+![Level 2](https://github.com/user-attachments/assets/5d45d111-7c2a-4fc4-8c7e-2a97181919c8)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+A diagram of the main menu and the levels state.
 
 ```mermaid
 sequenceDiagram
