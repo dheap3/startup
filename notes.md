@@ -38,6 +38,7 @@ the ip address at the end is the one that was set up on aws as an elastic ip add
 `cd ~/CS-260-Server`
 > [!NOTE]
 > to clone a repository from github to the server (like the files deployed for simon) use this format: `git clone https:://github.com/<repository>/<file(optional)>`
+
 Deploy:
 `./deployFiles.sh -k ../CS260-david.pem -h mindboggle.org -s simon`
 
