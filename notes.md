@@ -30,12 +30,18 @@ the ip address at the end is the one that was set up on aws as an elastic ip add
 ## HTML Notes
     <img src = "" alt = ""></img> to put in a picture
     <a href = ""></a> to put in a link
+    
 ->Check [Codepen](https://codepen.io/your-work) for examples
+
 ->[My Simon](simon.mindboggle.org)
+
 ->[My Startup](startup.mindboggle.org)
+
 ###Steps to deploy
 ->open Git Bash
+
 `cd ~/CS-260-Server`
+
 > [!NOTE]
 > to clone a repository from github to the server (like the files deployed for simon) use this format: `git clone https:://github.com/<repository>/<file(optional)>`
 
