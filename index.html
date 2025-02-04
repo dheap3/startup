@@ -8,19 +8,21 @@
     <header>
       <h1>Mind Boggle</h1>
       <nav>
-        <!-- how to play page could be helpful? -->
-         <!-- going to need a levels page eventually too -->
-        <!-- <li><a href="index.html">Home</a></li> -->
-        <!-- <li><a href="play.html">Play</a></li> maybe add later if I am able to create a login page-->
+        <li><a href="index.html">Home</a></li>
+        <li><a href="scores.html">Scores</a></li>
+        <li><a href="htp.html">How To Play</a></li>
     </nav>
     </header>
 
     <main>
-      <h1>Your current Highscores</h1>
-      <li>1. 20</li>
-      <li>2. 10</li>
-      <li>3. 1</li>
-      
+      <div id="login">
+        <form method="get" action="play.html">
+          <input placeholder="your@email.com" />
+          <input placeholder="password" />
+          <button>Login</button>
+          <button>Create</button>
+        </form>
+      </div>
       <!-- goals, in clockwise order -->
       <div class="goal">Top Goal</div>
       <div class="goal">Right Goal</div>
