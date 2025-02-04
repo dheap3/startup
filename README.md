@@ -65,15 +65,15 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - It's all on the home page because of the simplistic design, but if it gets messy I'll have a how to play page separate
+- [x] **Proper HTML element usage** - includes a header at the top, nav and main inside the body, and a footer at the bottom with my name and a link to GitHub
+- [x] **Links** - Links are commented out, but can be added for the how to play page if needed
+- [x] **Text** - Currently placeholders for fancy CSS elements that I'll add on the next deliverable
+- [x] **3rd party API placeholder** - Will display a new comic using an API whenever you have a new best score
+- [x] **Images** - I included an image of what the diagramed game will look like
+- [x] **Login placeholder** - Will be on top of the game to be able to access and play
+- [x] **DB data placeholder** - Will hold a list of the top scores
+- [x] **WebSocket placeholder** - The score will update automatically and notify when you're breaking a new highscore
 
 ## 🚀 CSS deliverable
 

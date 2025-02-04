@@ -19,6 +19,13 @@ sudo stands for super user do
 `vi Caddyfile` starts editing Caddyfile in vim - use i to insert and edit the code and : to execute a command (save and exit -> :wq)
 `ssh -i .\CS-260-Server/cs260-david.pem ubuntu@100.25.32.157`
 the ip address at the end is the one that was set up on aws as an elastic ip address so the server doesn't change ip address every time it's run
+
+### reminder about working with GitHub
+1. Pull the repository's latest changes from GitHub (git pull)
+2. Make changes to the code
+3. Commit the changes (git commit)
+4. Push the changes to GitHub (git push)
+
 ## AWS notes
 -caddy takes care of making a secure connection - https://startup.mindboggle.org/
 -aws is what runs the server itself, run with a default format (ami image, created by prof. Jensen) in us-east-1 N. Virginia 
@@ -37,7 +44,7 @@ the ip address at the end is the one that was set up on aws as an elastic ip add
 
 ->[My Startup](startup.mindboggle.org)
 
-###Steps to deploy
+### Steps to deploy to server
 ->open Git Bash
 
 `cd ~/CS-260-Server`
