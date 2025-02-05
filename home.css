@@ -57,3 +57,14 @@ main {
     justify-content: center;
     align-items: center;;
 }
+
+@media (min-width: 800px) {
+    #command {
+        padding: 10vw;
+        font-size: 2vw;
+    }
+    :root {
+        --shortLenght: 1vw;
+        --longLenght: 20vw;
+    }
+}
