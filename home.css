@@ -58,6 +58,12 @@ main {
     align-items: center;;
 }
 
+@media (max-width: 450px) {
+    #command {
+        font-size:1em;
+    }
+
+}
 @media (min-width: 800px) {
     #command {
         padding: 10vw;
