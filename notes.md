@@ -55,4 +55,14 @@ the ip address at the end is the one that was set up on aws as an elastic ip add
 Deploy:
 `./deployFiles.sh -k ../CS260-david.pem -h mindboggle.org -s simon`
 
+##React Notes
+triple backticks``` ``` before and after indicate a code block fyi
+
+```
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/index.jsx"></script>
+```
+heres a sample html body tag with noscript in case there isn't any javascript, a div with an id for the jsx to render in, and the jsx at the bottom in inline javascript
+
 
