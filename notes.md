@@ -56,7 +56,24 @@ Deploy:
 `./deployFiles.sh -k ../CS260-david.pem -h mindboggle.org -s simon`
 
 ##React Notes
-triple backticks``` ``` before and after indicate a code block fyi
+
+### running a server with vite
+- NPX will directly execute a Node package without referencing the package.json file. This is really useful for running JavaScript code that is meant to run as a command line program (CLI) such as Vite.
+- just vite run the commmand below
+``` npx vite ```
+and open it in the browser by hitting ``` o ``` and enter
+- for using React DOM, DOM stands for Document Object Model. It represents the structure of an HTML as a tree. JavaScript can use the DOM to manipulate elements on a webpage dynamically—changing text, styles, or even creating and deleting elements without reloading the page. (real time changes, at 300 miliseconds or whatever it is)
+- using the script ```npm run dev``` in the terminal should run vite with React DOM through the package.json file as long as the
+```
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+```
+is included in the .json
+
+
+triple backticks ``` code here ``` before and after indicate a code block fyi
 
 ```
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -111,3 +128,62 @@ root.render(<App />);
 ### React Routing
 - uses a NavLink and a route with the same to /blue and path /blue
 - the element has the first set of {} to escape the jsx and the other ones is the object, this case a page component <Page /> with the parameter color="blue" being passed in
+
+### Components - (Default value rendered)
+.HTML
+```
+<div id="root"></div>
+```
+.CSS
+```
+* {
+  font-family: Arial;
+  padding: 0.5em;
+}
+
+.component {
+  border: solid thick #888;
+  margin: 0.5em 0;
+  width: 500px;
+}
+
+```
+.JSX - JS (Babel) in Code Pen
+```
+// Top level component that contains child components
+function App() {
+  return (
+    <div>
+      Function Style Component: <Demo who="function" />
+    </div>
+  );
+}
+
+// Child component
+function Demo(props) {
+  const [outlook, setOutlook] = React.useState("starting string");
+  const [background, setBackground] = React.useState("#0000FF");
+
+  function changeOutlook() {
+    setOutlook(outlook === "exciting" ? "beautiful" : "exciting");
+  }
+
+  function changeBackground() {
+    setBackground(background === "#00FF00" ? "#FF0000" : "#00FF00");
+  }
+
+  return (
+    <div className="component">
+      <p style={{ backgroundColor: background }}>
+        Hello {outlook} {props.who}
+      </p>
+      <button onClick={changeOutlook}>change</button>
+      <button onClick={changeBackground}>background</button>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
+```
+notice React.useState("starting string"); is the default value when the page is first rendered, after that it'll use the change functions to swap colors
