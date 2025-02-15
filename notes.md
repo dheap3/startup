@@ -63,6 +63,48 @@ triple backticks``` ``` before and after indicate a code block fyi
     <div id="root"></div>
     <script type="module" src="/index.jsx"></script>
 ```
-heres a sample html body tag with noscript in case there isn't any javascript, a div with an id for the jsx to render in, and the jsx at the bottom in inline javascript
+Here's a sample html body tag with noscript in case there isn't any javascript, a div with an id for the jsx to render in, and the jsx at the bottom in inline javascript
 
+- The html has a tag that it will render the jsx in (shown above)
+- The jsx has a react object that's created and connected to the id in the html element. Object.render will run the funciton App (in this case). App is where the html/js will go that can call other functions (like page in this case)
+- Notice that CSS was imported here as well, react is streamlining the whole thing
+- The tags in this jsx file are being rendered by react (notice the import BrowserRouter, Routes, etc. from react-dom) and thus should look similar but could look and act a little different than a normal html page
+```
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import './styles.css';
 
+function Page({ color }) {
+  return (
+    <div className="page" style={{ backgroundColor: color }}>
+      <h1>{color}</h1>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="app">
+        <nav>
+          <NavLink to="/">Red</NavLink>
+          <NavLink to="/green">Green</NavLink>
+          <NavLink to="/blue">Blue</NavLink>
+        </nav>
+
+        <main>
+          <Routes>
+            <Route path="/" element={<Page color="red" />} exact />
+            <Route path="/green" element={<Page color="green" />} />
+            <Route path="/blue" element={<Page color="blue" />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+```
