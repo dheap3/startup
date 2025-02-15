@@ -108,3 +108,6 @@ function App() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
 ```
+### React Routing
+- uses a NavLink and a route with the same to /blue and path /blue
+- the element has the first set of {} to escape the jsx and the other ones is the object, this case a page component <Page /> with the parameter color="blue" being passed in
