@@ -56,7 +56,7 @@ Deploy:
 `./deployFiles.sh -k ../CS260-david.pem -h mindboggle.org -s simon`
 
 ##React Notes
-
+note: vite needs to be installed in the project folder to run on the project
 ### running a server with vite
 - NPX will directly execute a Node package without referencing the package.json file. This is really useful for running JavaScript code that is meant to run as a command line program (CLI) such as Vite.
 - just vite run the commmand below
