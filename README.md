@@ -79,13 +79,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
-- [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
-
+- [x] **Header, footer, and main content body** - I styled the header, footer, and main content and included it as a separate CSS file in each html page
+- [x] **Navigation elements** - The nav elements are styled and consistent as part of the header
+- [x] **Responsive to window resizing** - It resizes decently to different sizes of window
+- [x] **Application elements** - The elements look like they should in the game
+- [x] **Application text content** - The text isn't too big or too small when sceen sizes change
+- [x] **Application images** - none needed!
 ## 🚀 React part 1: Routing deliverable
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
