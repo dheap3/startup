@@ -3,7 +3,8 @@ import React from 'react';
 export function HTP() {
   return (
     <main>
-      <div>how to play displayed here</div>
-    </main>
+        <h1>How to Play</h1>
+        <p>Follow the directions given by the command! Do what the word says, that's about it</p>
+      </main>
   );
 }

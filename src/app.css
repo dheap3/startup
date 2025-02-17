@@ -47,7 +47,8 @@ main {
     align-items: center;
     justify-content: space-around;
     font-family: 'Roboto', sans-serif;
-    color: rgb(91, 91, 91);
+    background-color:  rgb(91, 91, 91);
+    color: rgb(223, 223, 223);
     padding: 1%;
 }
 
