@@ -11,7 +11,9 @@ import { HTP } from './howToPlay/htp';
 export default function App() {
 return (
     <BrowserRouter>
-        <header>
+    <div className="html">
+        <header className='header'>
+            <img id="logo" src="mind-swipe-logo.png" alt="logo png"></img>
             <h1 className="Title">Mind Boggle</h1>
             <nav>
                 <li className="link"><NavLink to="/">Login</NavLink></li>
@@ -34,6 +36,7 @@ return (
         
             <a className="link" href="https://github.com/dheap3/startup.git">GitHub</a>
         </footer>
+    </div>
     </BrowserRouter>
 );
 }

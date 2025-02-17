@@ -1,8 +1,14 @@
-html {
+#logo {
+    border-radius: 10px;
+    width: 15vw;
+    height: 15vw;
+}    
+
+.html {
     background-color: rgba(0, 0, 0, 0.855);
 }
 
-header {
+.header {
     display: flex;
     background-color:rgba(0, 0, 0, 0.855);
     font-family: 'Roboto', sans-serif;
@@ -66,4 +72,12 @@ footer {
 
 span {
     padding: 1%;
+}
+
+@media (min-width: 800px) {
+    #logo {
+        border-radius: 10px;
+        width: 6vw;
+        height: 6vw;
+    }
 }
