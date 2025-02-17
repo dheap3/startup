@@ -1,30 +1,42 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { Login } from './login/login';
+import { Play } from './play/play';
+import { Scores } from './scores/scores';
+import { HTP } from './howToPlay/htp';
+
 
 export default function App() {
-    return (
-        <body>
-      <header>
-        <h1 class="Title">Mind Boggle</h1>
-        <nav>
-            <li class="link"><a href="login.html">Login</a></li>
-          <li class="link"><a href="index.html">Home</a></li>
-          <li class="link"><a href="scores.html">Scores</a></li>
-          <li class="link"><a href="htp.html">How To Play</a></li>
-      </nav>
-      </header>
-  
-      <main>
-        component here
-      </main>
-      <footer>
-        <span>David Heap</span>
-      
-        <a class="link" href="https://github.com/dheap3/startup.git">GitHub</a>
-      </footer>
-  
-  
-  </body>
-    );
+return (
+    <BrowserRouter>
+        <header>
+            <h1 className="Title">Mind Boggle</h1>
+            <nav>
+                <li className="link"><NavLink to="/">Login</NavLink></li>
+                <li className="link"><NavLink to="/play">Play</NavLink></li>
+                <li className="link"><NavLink to="/scores">Scores</NavLink></li>
+                <li className="link"><NavLink to="/htp">How To Play</NavLink></li>
+            </nav>
+        </header>
+
+        <Routes>
+            <Route path='/' element={<Login />} exact />
+            <Route path='/play' element={<Play />} />
+            <Route path='/scores' element={<Scores />} />
+            <Route path='/htp' element={<HTP />} />
+            <Route path='*' element={<NotFound />} />
+        </Routes>
+        
+        <footer>
+            <span>David Heap</span>
+        
+            <a className="link" href="https://github.com/dheap3/startup.git">GitHub</a>
+        </footer>
+    </BrowserRouter>
+);
+}
+function NotFound() {
+return <main className="container-fluid bg-secondary text-center">404: Return to sender. Address unknown.</main>;
 }
