@@ -1,0 +1,16 @@
+input {
+    padding: .375rem .75rem;
+    border: 1px solid rgb(91, 91, 91);
+    border-radius: .375rem;
+}
+button {
+    padding: .375rem .75rem;
+    border: 1px solid rgb(91, 91, 91);
+    border-radius: .375rem;
+}
+button:hover {
+    background-color: #2e70ff;
+}
+p {
+    color: rgb(223, 223, 223);
+}
