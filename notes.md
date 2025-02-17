@@ -1,4 +1,4 @@
-# CS 260 Notes
+oy# CS 260 Notes
 
 [Class Startup](https://simon.cs260.click)
 [Markdown Syntax](https://www.markdownguide.org/basic-syntax/)
