@@ -4,7 +4,7 @@ import "./play.css";
 
 const KeyboardResponsive = () => {
   const [keyPressed, setNewCommand] = useState('Command');
-  const [bgColor, setColor] = useState({style: {bgColor: "hsl(0, 100%, 80%)"}});
+  const [bgColor, setColor] = useState({style: {bgColor: "hsl(0, 100%, 75%)"}});
   const [animateText, setAnimateText] = useState(false);
 
   useEffect(() => {
@@ -12,7 +12,8 @@ const KeyboardResponsive = () => {
           setNewCommand(`${event.key}`);
           setAnimateText(true);
           setTimeout(() => {
-            setColor(`hsl(${Math.random() * 360}, 100%, 80%)`);// use later for random color;
+            // setColor(`hsl(${Math.floor(Math.random() * 4) * 36}, 100%, 75%)`);
+            setColor(`hsl(${Math.random() * 360}, 100%, 75%)`);// use later for random color;
           }, 400);//400 miliseconds is .4 seconds, the same time as the animation duration doubled to return to home position (1,1)
       };
 
