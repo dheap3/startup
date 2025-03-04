@@ -13,7 +13,7 @@ const KeyboardResponsive = () => {
           setAnimateText(true);
           setTimeout(() => {
             setColor(`hsl(${Math.random() * 360}, 100%, 80%)`);// use later for random color;
-          }, 200);
+          }, 400);//400 miliseconds is .4 seconds, the same time as the animation duration doubled to return to home position (1,1)
       };
 
       window.addEventListener('keydown', handleKeyDown);
