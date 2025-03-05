@@ -10,8 +10,13 @@ const GamePlay = () => {
   const [rightGoalColor, setRightGoalColor] = useState("hsl(${Math.random() * 360}, 100%, 75%)");
   const [bottomGoalColor, setBottomGoalColor] = useState("hsl(${Math.random() * 360}, 100%, 75%)");
   const [animateText, setAnimateText] = useState(false);
-  const colorSelection = ['orange', 'blue', 'green', 'magenta'];
+  const colorSelection = ['orange', 'blue', 'green', 'magenta', 'red', 'yellow', 'purple', 'cyan'];
   let colorsAvailable = colorSelection;
+
+  //set the command word
+  const [commandWord, setCommandWord] = useState('Start');
+  const commands = ['Up', 'Down', 'Left', 'Right', 'North', 'South', 'East', 'West'] + colorSelection;
+
 
   useEffect(() => {
       const handleKeyDown = (event) => {
@@ -22,10 +27,14 @@ const GamePlay = () => {
             // setColor(`hsl(${Math.floor(Math.random() * 4) * 36}, 100%, 75%)`);
             //change command and one goal to match
             setCommandColor(() => {
-              const keyColor = colorsAvailable[Math.floor(Math.random() * 4)];
+              colorsAvailable = colorSelection;
+              // console.log(colorsAvailable);
+              let randNum = Math.floor(Math.random() * 4);
+              // console.log(randNum);
+              const keyColor = colorsAvailable[randNum];
               colorsAvailable = colorSelection.filter(color => color !== keyColor);
-              console.log(colorsAvailable);
-              console.log(keyColor);
+              // console.log(colorsAvailable);
+              // console.log(keyColor);
               let matchingGoal = Math.floor(Math.random() * 4);
               if (matchingGoal === 0) {
                 setTopGoalColor(keyColor);
@@ -53,11 +62,6 @@ const GamePlay = () => {
               }
               return keyColor;
             });
-            // change the rest of the goals
-            // setTopGoalColor(colorsAvailable[Math.floor(Math.random() * 3)]);
-            // setLeftGoalColor(colorsAvailable[Math.floor(Math.random() * 3)]);
-            // setRightGoalColor(colorsAvailable[Math.floor(Math.random() * 3)]);
-            // setBottomGoalColor(colorsAvailable[Math.floor(Math.random() * 3)]);
           }, 400);//400 miliseconds is .4 seconds, the same time as the animation duration doubled to return to home position (1,1)
         }
       };
@@ -86,7 +90,7 @@ const GamePlay = () => {
 
         onAnimationComplete={() => { setAnimateText(false); }}
         style={{color: commandColor}}
-        id="command">Command</motion.div>
+        id="command">{commandWord}</motion.div>
 
         <div className="goal" id="right" style={{backgroundColor: rightGoalColor}}></div>
       </div>

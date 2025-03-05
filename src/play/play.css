@@ -50,6 +50,7 @@
 #command {
     padding: 20vw;
     font-size: 3vw;
+    text-shadow: rgb(0, 0, 0) 1px 1px;
     /* background-color: yellow; */
 }
 
