@@ -10,13 +10,19 @@ const GamePlay = () => {
   const [rightGoalColor, setRightGoalColor] = useState("hsl(${Math.random() * 360}, 100%, 75%)");
   const [bottomGoalColor, setBottomGoalColor] = useState("hsl(${Math.random() * 360}, 100%, 75%)");
   const [animateText, setAnimateText] = useState(false);
-  const colorSelection = ['orange', 'blue', 'green', 'magenta', 'red', 'yellow', 'purple', 'cyan'];
+  const colorSelection = ['Orange', 'Blue', 'Green', 'Magenta', 'Red', 'Yellow', 'Purple', 'Cyan'];
   let colorsAvailable = colorSelection;
 
   //set the command word
   const [commandWord, setCommandWord] = useState('Start');
-  const commands = ['Up', 'Down', 'Left', 'Right', 'North', 'South', 'East', 'West'] + colorSelection;
-
+  const commands = ['Up', 'Down', 'Left', 'Right', 'North', 'South', 'East', 'West'].concat(colorsAvailable);
+  function changeCommand() {
+    let num = Math.floor(Math.random() * commands.length);
+    let commandWord = commands[num];
+    console.log(commandWord);
+    console.log(num);
+    setCommandWord(commandWord);
+  }
 
   useEffect(() => {
       const handleKeyDown = (event) => {
@@ -62,6 +68,7 @@ const GamePlay = () => {
               }
               return keyColor;
             });
+            changeCommand();
           }, 400);//400 miliseconds is .4 seconds, the same time as the animation duration doubled to return to home position (1,1)
         }
       };
