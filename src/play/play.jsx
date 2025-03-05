@@ -9,12 +9,14 @@ const KeyboardResponsive = () => {
 
   useEffect(() => {
       const handleKeyDown = (event) => {
+        if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'w' || event.key === 's' || event.key === 'a' || event.key === 'd') {
           setNewCommand(`${event.key}`);
           setAnimateText(true);
           setTimeout(() => {
             // setColor(`hsl(${Math.floor(Math.random() * 4) * 36}, 100%, 75%)`);
             setColor(`hsl(${Math.random() * 360}, 100%, 75%)`);// use later for random color;
           }, 400);//400 miliseconds is .4 seconds, the same time as the animation duration doubled to return to home position (1,1)
+        }
       };
 
       window.addEventListener('keydown', handleKeyDown);
@@ -25,10 +27,10 @@ const KeyboardResponsive = () => {
     initial={{ y: 0 }}
     animate={
       animateText ?
-        keyPressed === 'ArrowUp' ? { y: -101, opacity: 0 } : 
-        keyPressed === 'ArrowDown' ? { y: 101, opacity: 0 } : 
-        keyPressed === 'ArrowLeft' ? { x: -101, opacity: 0 } : 
-        keyPressed === 'ArrowRight' ? { x: 101, opacity: 0 } : { y: 1, opacity: 1 }
+        keyPressed === 'ArrowUp' || keyPressed === 'w' ? { y: -101, opacity: 0 } : 
+        keyPressed === 'ArrowDown' || keyPressed === 's' ? { y: 101, opacity: 0 } : 
+        keyPressed === 'ArrowLeft' || keyPressed === 'a' ? { x: -101, opacity: 0 } : 
+        keyPressed === 'ArrowRight' || keyPressed === 'd' ? { x: 101, opacity: 0 } : { y: 1, opacity: 1 }
       : { y: 1, opacity: 1 }
     }
     transition={{ duration: 0.2 }}
