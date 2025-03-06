@@ -26,6 +26,10 @@ const GamePlay = () => {
     return commandWord;
   }
 
+  function randomColor() {
+    let color = colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)];
+    return color;
+  }
 
   useEffect(() => {
       const handleKeyDown = (event) => {
@@ -51,27 +55,27 @@ const GamePlay = () => {
               let matchingGoal = Math.floor(Math.random() * 4); //4 goals
               if (matchingGoal === 0) {
                 setTopGoalColor(keyColor);
-                setLeftGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
-                setRightGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
-                setBottomGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
+                setLeftGoalColor(randomColor());
+                setRightGoalColor(randomColor());
+                setBottomGoalColor(randomColor());
               }
               if (matchingGoal === 1) {
                 setLeftGoalColor(keyColor);
-                setTopGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
-                setRightGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
-                setBottomGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
+                setTopGoalColor(randomColor());
+                setRightGoalColor(randomColor());
+                setBottomGoalColor(randomColor());
               }
               if (matchingGoal === 2) {
                 setRightGoalColor(keyColor);
-                setTopGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
-                setLeftGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
-                setBottomGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
+                setTopGoalColor(randomColor());
+                setLeftGoalColor(randomColor());
+                setBottomGoalColor(randomColor());
               }
               if (matchingGoal === 3) {
                 setBottomGoalColor(keyColor);
-                setTopGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
-                setLeftGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
-                setRightGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
+                setTopGoalColor(randomColor());
+                setLeftGoalColor(randomColor());
+                setRightGoalColor(randomColor());
               }
               return keyColor;
             });
