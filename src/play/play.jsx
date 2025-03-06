@@ -5,10 +5,11 @@ import "./play.css";
 const GamePlay = () => {
   const [keyPressed, setNewCommand] = useState('Command');
   const [commandColor, setCommandColor] = useState("rgb(223, 223, 223)");
-  const [topGoalColor, setTopGoalColor] = useState("hsl(${Math.random() * 360}, 100%, 75%)");
-  const [leftGoalColor, setLeftGoalColor] = useState("hsl(${Math.random() * 360}, 100%, 75%)");
-  const [rightGoalColor, setRightGoalColor] = useState("hsl(${Math.random() * 360}, 100%, 75%)");
-  const [bottomGoalColor, setBottomGoalColor] = useState("hsl(${Math.random() * 360}, 100%, 75%)");
+  //`hsl(${Math.random() * 360}, 100%, 75%)` // random color
+  const [topGoalColor, setTopGoalColor] = useState(`Orange`);
+  const [leftGoalColor, setLeftGoalColor] = useState(`Blue`);
+  const [rightGoalColor, setRightGoalColor] = useState(`Green`);
+  const [bottomGoalColor, setBottomGoalColor] = useState(`Magenta`);
   const [animateText, setAnimateText] = useState(false);
   const colorSelection = ['Orange', 'Blue', 'Green', 'Magenta', 'Red', 'Yellow', 'Purple', 'Cyan'];
   let colorsAvailable = colorSelection;
@@ -22,7 +23,9 @@ const GamePlay = () => {
     console.log(commandWord);
     console.log(num);
     setCommandWord(commandWord);
+    return commandWord;
   }
+
 
   useEffect(() => {
       const handleKeyDown = (event) => {
@@ -33,42 +36,46 @@ const GamePlay = () => {
             // setColor(`hsl(${Math.floor(Math.random() * 4) * 36}, 100%, 75%)`);
             //change command and one goal to match
             setCommandColor(() => {
+              //reset the colors available
               colorsAvailable = colorSelection;
-              // console.log(colorsAvailable);
-              let randNum = Math.floor(Math.random() * 4);
-              // console.log(randNum);
-              const keyColor = colorsAvailable[randNum];
+              // set the key color to a random color
+              let randNum = Math.floor(Math.random() * colorsAvailable.length);
+              let keyColor = colorsAvailable[randNum];
+              //change the command word, if it's a color, set the key color to that color
+              let daCommand = changeCommand();
+              if (colorsAvailable.includes(daCommand)) {
+                keyColor = daCommand;
+              }
               colorsAvailable = colorSelection.filter(color => color !== keyColor);
-              // console.log(colorsAvailable);
-              // console.log(keyColor);
-              let matchingGoal = Math.floor(Math.random() * 4);
+              //set the goals to random colors
+              let matchingGoal = Math.floor(Math.random() * 4); //4 goals
               if (matchingGoal === 0) {
                 setTopGoalColor(keyColor);
-                setLeftGoalColor(colorsAvailable[Math.floor(Math.random() * 3)]);
-                setRightGoalColor(colorsAvailable[Math.floor(Math.random() * 3)]);
-                setBottomGoalColor(colorsAvailable[Math.floor(Math.random() * 3)]);
+                setLeftGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
+                setRightGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
+                setBottomGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
               }
               if (matchingGoal === 1) {
                 setLeftGoalColor(keyColor);
-                setTopGoalColor(colorsAvailable[Math.floor(Math.random() * 3)]);
-                setRightGoalColor(colorsAvailable[Math.floor(Math.random() * 3)]);
-                setBottomGoalColor(colorsAvailable[Math.floor(Math.random() * 3)]);
+                setTopGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
+                setRightGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
+                setBottomGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
               }
               if (matchingGoal === 2) {
                 setRightGoalColor(keyColor);
-                setTopGoalColor(colorsAvailable[Math.floor(Math.random() * 3)]);
-                setLeftGoalColor(colorsAvailable[Math.floor(Math.random() * 3)]);
-                setBottomGoalColor(colorsAvailable[Math.floor(Math.random() * 3)]);
+                setTopGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
+                setLeftGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
+                setBottomGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
               }
               if (matchingGoal === 3) {
                 setBottomGoalColor(keyColor);
-                setTopGoalColor(colorsAvailable[Math.floor(Math.random() * 3)]);
-                setLeftGoalColor(colorsAvailable[Math.floor(Math.random() * 3)]);
-                setRightGoalColor(colorsAvailable[Math.floor(Math.random() * 3)]);
+                setTopGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
+                setLeftGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
+                setRightGoalColor(colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)]);
               }
               return keyColor;
             });
-            changeCommand();
+            // changeCommand();
           }, 400);//400 miliseconds is .4 seconds, the same time as the animation duration doubled to return to home position (1,1)
         }
       };
