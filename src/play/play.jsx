@@ -11,8 +11,11 @@ const GamePlay = () => {
   const [rightGoalColor, setRightGoalColor] = useState(`Green`);
   const [bottomGoalColor, setBottomGoalColor] = useState(`Magenta`);
   const [animateText, setAnimateText] = useState(false);
-  const colorSelection = ['Orange', 'Blue', 'Green', 'Magenta', 'Red', 'Yellow', 'Purple', 'Cyan'];
+  const colorSelection = ['Orange', 'Blue', 'Green', 'Magenta', 'Red', 'Yellow', 'Purple'];
   let colorsAvailable = colorSelection;
+
+  let orderKey = [];
+  let orderResponses = [];
 
   //set the command word
   const [commandWord, setCommandWord] = useState('Start');
@@ -20,8 +23,6 @@ const GamePlay = () => {
   function changeCommand() {
     let num = Math.floor(Math.random() * commands.length);
     let commandWord = commands[num];
-    console.log(commandWord);
-    console.log(num);
     setCommandWord(commandWord);
     return commandWord;
   }
@@ -45,6 +46,7 @@ const GamePlay = () => {
               let keyColor = randomColor();
               //change the command word, if it's a color, set the key color to that color
               let daCommand = changeCommand();
+
               if (colorsAvailable.includes(daCommand)) {
                 keyColor = daCommand;
               }
@@ -54,6 +56,39 @@ const GamePlay = () => {
 
               //set the goals to random colors
               let matchingGoal = Math.floor(Math.random() * 4); //4 goals
+              
+              //add the response to the orderResponses array
+              orderResponses.push(event.key);
+              //add to the orderKey array to check the correct order of commands
+              if (daCommand === 'Up' || daCommand === 'North') {
+                orderKey.push('ArrowUp');
+              } else if (daCommand === 'Left' || daCommand === 'West') {
+                orderKey.push('ArrowLeft');
+              } else if (daCommand === 'Right' || daCommand === 'East') {
+                orderKey.push('ArrowRight');
+              } else if (daCommand === 'Down' || daCommand === 'South') {
+                orderKey.push('ArrowDown');
+              } else {//daCommand is a color
+                if (matchingGoal === 0) {
+                  orderKey.push('ArrowUp');
+                } else if (matchingGoal === 1) {
+                  orderKey.push('ArrowLeft');
+                } else if (matchingGoal === 2) {
+                  orderKey.push('ArrowRight');
+                } else if (matchingGoal === 3) {
+                  orderKey.push('ArrowDown');
+                }
+              }
+              console.log(orderResponses);
+              console.log(orderKey);
+              if (orderResponses.length >= 2 && orderKey.length >= 2) {
+                if (orderResponses.at(-1) === orderKey.at(-2)) {
+                  console.log('correct');
+                } else {
+                  console.log('incorrect');
+                }
+              }
+
               if (matchingGoal === 0) {
                 setTopGoalColor(keyColor);
                 setLeftGoalColor(randomColor());
