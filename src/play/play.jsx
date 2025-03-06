@@ -42,15 +42,16 @@ const GamePlay = () => {
             setCommandColor(() => {
               //reset the colors available
               colorsAvailable = colorSelection;
-              // set the key color to a random color
-              let randNum = Math.floor(Math.random() * colorsAvailable.length);
-              let keyColor = colorsAvailable[randNum];
+              let keyColor = randomColor();
               //change the command word, if it's a color, set the key color to that color
               let daCommand = changeCommand();
               if (colorsAvailable.includes(daCommand)) {
                 keyColor = daCommand;
               }
-              colorsAvailable = colorSelection.filter(color => color !== keyColor);
+              
+              //remove the color from the available colors
+              colorsAvailable = colorsAvailable.filter(color => color !== keyColor);
+
               //set the goals to random colors
               let matchingGoal = Math.floor(Math.random() * 4); //4 goals
               if (matchingGoal === 0) {
