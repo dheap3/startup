@@ -29,7 +29,7 @@ export function Login() {
   const proceedToPlay = () => {
     if (verified) {
       navigate('/play', { state: { userName: userName } });
-      console.log(userName, "has logged in");
+      // console.log(userName, "has logged in");
       verified = false;
     } else {
       // console.log("User not found, please create an account and then login.");

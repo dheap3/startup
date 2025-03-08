@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { motion } from 'framer-motion';
 import "./play.css";
+import { useNavigate } from 'react-router-dom';
 
 export function GamePlay({ userName }) {
   const [keyPressed, setNewCommand] = useState('Command');
@@ -66,6 +67,11 @@ export function GamePlay({ userName }) {
     }
 
     localStorage.setItem('scores', JSON.stringify(scores));
+  }
+
+  const navigate = useNavigate();
+  const proceedToScores = () => {
+    navigate('/scores', { state: { userName: userName, score: currScore } });
   }
 
   useEffect(() => {
@@ -162,9 +168,11 @@ export function GamePlay({ userName }) {
       window.addEventListener('keydown', handleKeyDown);
       return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
+
   return (
     <div>
-      <div id="score">Score: {currScore} User: {currUser}</div>
+      <div id="score">User: {currUser}<br></br>Score: {currScore}</div>
+      <button onClick={() => {proceedToScores()}}>See My Scores</button>
       <div id="gameplaycomponent">
         <div className="goal" id="top" style={{backgroundColor: topGoalColor}}></div>
         <div id="inline">

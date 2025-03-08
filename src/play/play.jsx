@@ -7,7 +7,7 @@ export function Play() {
   const location = useLocation();
   const userName = location.state?.userName || "Guest";
 
-  console.log(userName, " is playing");
+  // console.log(userName, " is playing");
   return (
     <main>
       <GamePlay userName={userName}/>
