@@ -19,6 +19,7 @@ const verifyUser = (username, password) => {//userInfo = [{ username: "qwerty", 
 
 const createUser = (user, pass) => {
   allUserInfo.push({ username: user, password: pass });
+  alert("User created! Please login to continue");
   // console.log(allUserInfo);
 };
 

@@ -27,7 +27,7 @@ return (
 
         <Routes>
             <Route path='/' element={<Login />} exact />
-            <Route path='/play' element={<Play userName={userName}/>} />
+            <Route path='/play' element={<Play />} />
             <Route path='/scores' element={<Scores />} />
             <Route path='/htp' element={<HTP />} />
             <Route path='*' element={<NotFound />} />

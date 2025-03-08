@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import "./play.css";
 import { GamePlay } from './gameplay';
 import { useLocation } from 'react-router-dom';
