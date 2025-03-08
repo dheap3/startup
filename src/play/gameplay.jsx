@@ -11,6 +11,7 @@ export function GamePlay({ userName }) {
   const [rightGoalColor, setRightGoalColor] = useState(`Green`);
   const [bottomGoalColor, setBottomGoalColor] = useState(`Magenta`);
   const [animateText, setAnimateText] = useState(false);
+  const [currUser, setCurrUser] = useState(userName);
   const colorSelection = ['Orange', 'Blue', 'Green', 'Magenta', 'Red', 'Yellow', 'Purple'];
   let colorsAvailable = colorSelection;
 
@@ -163,7 +164,7 @@ export function GamePlay({ userName }) {
   }, []);
   return (
     <div>
-      <div id="score">Score: {currScore}</div>
+      <div id="score">Score: {currScore} User: {currUser}</div>
       <div id="gameplaycomponent">
         <div className="goal" id="top" style={{backgroundColor: topGoalColor}}></div>
         <div id="inline">

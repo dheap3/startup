@@ -9,7 +9,7 @@ let allUserInfo = [
 let verified = false;
 
 const verifyUser = (username, password) => {//userInfo = [{ username: "qwerty", password: "qwerty" }]
-  console.log(allUserInfo);
+  // console.log(allUserInfo);
   for (let i = 0; i < allUserInfo.length; i++) {
     if (username === allUserInfo[i].username && password === allUserInfo[i].password) {
       verified = true;
@@ -19,7 +19,7 @@ const verifyUser = (username, password) => {//userInfo = [{ username: "qwerty", 
 
 const createUser = (user, pass) => {
   allUserInfo.push({ username: user, password: pass });
-  console.log(allUserInfo);
+  // console.log(allUserInfo);
 };
 
 export function Login() {
@@ -28,10 +28,12 @@ export function Login() {
   const navigate = useNavigate();
   const proceedToPlay = () => {
     if (verified) {
-      navigate('/play');
+      navigate('/play', { state: { userName: userName } });
+      console.log(userName, "has logged in");
       verified = false;
     } else {
-      console.log("User not found, please create an account and then login.");
+      // console.log("User not found, please create an account and then login.");
+      alert("User not found, please create an account and then login");
     }
   }
 
