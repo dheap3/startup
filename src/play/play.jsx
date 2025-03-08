@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { motion } from 'framer-motion';
 import "./play.css";
 
-const GamePlay = () => {
+const GamePlay = ({ userName }) => {
   const [keyPressed, setNewCommand] = useState('Command');
   const [commandColor, setCommandColor] = useState("rgb(223, 223, 223)");
   //`hsl(${Math.random() * 360}, 100%, 75%)` // random color
@@ -16,6 +16,7 @@ const GamePlay = () => {
 
   let orderKey = [];
   let orderResponses = [];
+  let [currScore, setCurrScore] = useState(0);
 
   //set the command word
   const [commandWord, setCommandWord] = useState('Start');
@@ -30,6 +31,40 @@ const GamePlay = () => {
   function randomColor() {
     let color = colorsAvailable[Math.floor(Math.random() * colorsAvailable.length)];
     return color;
+  }
+
+  async function saveScore(score) {
+    const date = new Date().toLocaleDateString();
+    const newScore = { name: userName, score: score, date: date };
+    console.log(newScore);
+    updateScoresLocal(newScore);
+  }
+
+  function updateScoresLocal(newScore) {
+    let scores = [];
+    const scoresText = localStorage.getItem('scores');
+    if (scoresText) {
+      scores = JSON.parse(scoresText);
+    }
+
+    let found = false;
+    for (const [i, prevScore] of scores.entries()) {
+      if (newScore.score > prevScore.score) {
+        scores.splice(i, 0, newScore);
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
+      scores.push(newScore);
+    }
+
+    if (scores.length > 10) {
+      scores.length = 10;
+    }
+
+    localStorage.setItem('scores', JSON.stringify(scores));
   }
 
   useEffect(() => {
@@ -81,11 +116,14 @@ const GamePlay = () => {
               }
               console.log(orderResponses);
               console.log(orderKey);
-              if (orderResponses.length >= 2 && orderKey.length >= 2) {
+              if (orderResponses.length >= 2 && orderKey.length >= 2) { //most recent response received compared with the last right answer (not the newly generated answer)
                 if (orderResponses.at(-1) === orderKey.at(-2)) {
                   console.log('correct');
+                  setCurrScore(currScore => currScore + 1);
                 } else {
                   console.log('incorrect');
+                  saveScore(currScore);
+                  setCurrScore(0);
                 }
               }
 
@@ -124,39 +162,42 @@ const GamePlay = () => {
       return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
   return (
-    <div id="gameplaycomponent">
-      <div className="goal" id="top" style={{backgroundColor: topGoalColor}}></div>
-      <div id="inline">
-        <div className="goal" id="left" style={{backgroundColor: leftGoalColor}}></div>
-        
-        {/* command in the middle, moving around */}
-        <motion.div
-        initial={{ y: 0 }}
-        animate={
-          animateText ?
-            keyPressed === 'ArrowUp' || keyPressed === 'w' ? { y: -101, opacity: 0 } : 
-            keyPressed === 'ArrowDown' || keyPressed === 's' ? { y: 101, opacity: 0 } : 
-            keyPressed === 'ArrowLeft' || keyPressed === 'a' ? { x: -101, opacity: 0 } : 
-            keyPressed === 'ArrowRight' || keyPressed === 'd' ? { x: 101, opacity: 0 } : { y: 1, opacity: 1 }
-          : { y: 1, opacity: 1 }
-        }
-        transition={{ duration: 0.2 }}
+    <div>
+      <div id="score">Score: {currScore}</div>
+      <div id="gameplaycomponent">
+        <div className="goal" id="top" style={{backgroundColor: topGoalColor}}></div>
+        <div id="inline">
+          <div className="goal" id="left" style={{backgroundColor: leftGoalColor}}></div>
+          
+          {/* command in the middle, moving around */}
+          <motion.div
+          initial={{ y: 0 }}
+          animate={
+            animateText ?
+              keyPressed === 'ArrowUp' || keyPressed === 'w' ? { y: -101, opacity: 0 } : 
+              keyPressed === 'ArrowDown' || keyPressed === 's' ? { y: 101, opacity: 0 } : 
+              keyPressed === 'ArrowLeft' || keyPressed === 'a' ? { x: -101, opacity: 0 } : 
+              keyPressed === 'ArrowRight' || keyPressed === 'd' ? { x: 101, opacity: 0 } : { y: 1, opacity: 1 }
+            : { y: 1, opacity: 1 }
+          }
+          transition={{ duration: 0.2 }}
 
-        onAnimationComplete={() => { setAnimateText(false); }}
-        style={{color: commandColor}}
-        id="command">{commandWord}</motion.div>
+          onAnimationComplete={() => { setAnimateText(false); }}
+          style={{color: commandColor}}
+          id="command">{commandWord}</motion.div>
 
-        <div className="goal" id="right" style={{backgroundColor: rightGoalColor}}></div>
+          <div className="goal" id="right" style={{backgroundColor: rightGoalColor}}></div>
+        </div>
+        <div className="goal" id ="bottom" style={{backgroundColor: bottomGoalColor}}></div>
       </div>
-      <div className="goal" id ="bottom" style={{backgroundColor: bottomGoalColor}}></div>
     </div>
   );
 };
 
-export function Play() {
+export function Play(userName) {
   return (
     <main>
-      <GamePlay />
+      <GamePlay userName={userName}/>
       <p>API notifications of people passing you on the leaderboard go here</p>
     </main>
   );

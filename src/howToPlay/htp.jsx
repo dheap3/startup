@@ -4,7 +4,7 @@ export function HTP() {
   return (
     <main>
         <h1>How to Play</h1>
-        <p>Follow the directions given by the command! Do what the word says, that's about it</p>
+        <p>Use the arrow keys or WASD to do what the word in the center says. You will score points for every time you make a correct match.</p>
       </main>
   );
 }

@@ -9,6 +9,10 @@ import { HTP } from './howToPlay/htp';
 
 
 export default function App() {
+  const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
+//   const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+//   const [authState, setAuthState] = React.useState(currentAuthState);
+
 return (
     <BrowserRouter>
     <div className="html">
@@ -25,7 +29,7 @@ return (
 
         <Routes>
             <Route path='/' element={<Login />} exact />
-            <Route path='/play' element={<Play />} />
+            <Route path='/play' element={<Play userName={userName}/>} />
             <Route path='/scores' element={<Scores />} />
             <Route path='/htp' element={<HTP />} />
             <Route path='*' element={<NotFound />} />
