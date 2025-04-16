@@ -194,3 +194,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 ```
 notice React.useState("starting string"); is the default value when the page is first rendered, after that it'll use the change functions to swap colors
+
+### Service
+The service uses cookies and authentication to store info on the local machine. login, register, and logout are created along with storing the scores
