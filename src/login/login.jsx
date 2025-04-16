@@ -23,6 +23,36 @@ const createUser = (user, pass) => {
   // console.log(allUserInfo);
 };
 
+async function loginOrCreate(endpoint) {
+  const response = await fetch(endpoint, {
+    method: 'post',
+    body: JSON.stringify({ email: userName, password: password }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+  if (response?.status === 200) {
+    localStorage.setItem('userName', userName);
+    props.onLogin(userName);
+  } else {
+    const body = await response.json();
+    setDisplayError(`⚠ Error: ${body.msg}`);
+  }
+}
+
+function logout() {
+  fetch(`/api/auth/logout`, {
+    method: 'delete',
+  })
+    .catch(() => {
+      // Logout failed. Assuming offline
+    })
+    .finally(() => {
+      localStorage.removeItem('userName');
+      props.onLogout();
+    });
+}
+
 export function Login() {
   const [userName, setUserName] = React.useState("");
   const [password, setPassword] = React.useState("");
