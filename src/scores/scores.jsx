@@ -5,6 +5,14 @@ export function Scores() {
   const location = useLocation();
   const { userName, score } = location.state || { userName: "Unknown", score: -1 };
 
+  React.useEffect(() => {
+    fetch('/api/scores')
+      .then((response) => response.json())
+      .then((scores) => {
+        setScores(scores);
+      });
+  }, []);
+
   return (
     <main>
         <h1>Your current Highscores</h1>
